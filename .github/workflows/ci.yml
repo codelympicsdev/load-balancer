@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Get datacenter locations
+        run: yarn datacenters
+      - name: Install wrangler
+        run: npm i -g @cloudflare/wrangler
+      - name: Build & publish worker
+        run: wrangler publish --env production
+        env:
+          CF_EMAIL: ${{secrets.CF_EMAIL}}
+          CF_API_KEY: ${{secrets.CF_API_KEY}}

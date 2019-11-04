@@ -1,0 +1,7 @@
+name = "load-balancer"
+type = "webpack"
+account_id = "93bfcf72dfea0e9f2bf5563bc71052cf"
+workers_dev = true
+
+[env.production]
+zone_id = "7b07af900fa275077da1ae77364f2a07"

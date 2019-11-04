@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended",
+    "tslint-eslint-rules",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": ["node_modules/**"]
+  },
+  "jsRules": {},
+  "rules": {
+    "prettier": [
+      true,
+      {
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ],
+    "quotemark": [true, "single"],
+    "interface-name": false,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ]
+  }
+}

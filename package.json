@@ -1,0 +1,33 @@
+{
+  "name": "load-balancer",
+  "version": "1.0.0",
+  "description": "A Cloudflare Worker used to load balance and geo route",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "lint-fix": "tslint --project tsconfig.json --fix",
+    "build": "webpack --progress --mode production",
+    "build-dev": "webpack --progress --mode none",
+    "build-all": "npm run lint && npm run test && npm run build",
+    "datacenters": "node util/datacenters.js && mv datacenters.json src/"
+  },
+  "author": "codelympics.dev <hello@codelympics.dev>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.7.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "prettier": "^1.18.2",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "types-cloudflare-worker": "^1.0.1",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "cf-worker-kit": "^0.1.1"
+  }
+}
