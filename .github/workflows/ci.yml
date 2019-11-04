@@ -14,6 +14,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - name: Get dependencies
+        run: yarn
       - name: Get datacenter locations
         run: yarn datacenters
       - name: Install wrangler
